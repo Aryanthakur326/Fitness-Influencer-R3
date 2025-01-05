@@ -1,0 +1,29 @@
+@WebServlet("/register")
+public class RegistrationServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Retrieve form data
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        // Save data to the database (logic not shown)
+        User user = new User(name, email, password);
+        UserService.saveUser(user); // Example service class
+
+        // Redirect or forward to success page
+        request.setAttribute("message", "Registration successful!");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+        dispatcher.forward(request, response);
+    }
+}
+
+web.xml Configuration (if not using annotations):
+
+<servlet>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>com.fitness.RegistrationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+</servlet-mapping>
