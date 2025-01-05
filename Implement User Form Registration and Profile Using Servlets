@@ -1,0 +1,17 @@
+<form action="register" method="POST">
+    <label>Name:</label><input type="text" name="name" required><br>
+    <label>Email:</label><input type="email" name="email" required><br>
+    <label>Password:</label><input type="password" name="password" required><br>
+    <button type="submit">Register</button>
+</form>
+
+Profile Page (profile.jsp):
+
+<h2>Profile Information</h2>
+<form action="updateProfile" method="POST">
+    <label>Name:</label><input type="text" name="name" value="${user.name}" required><br>
+    <label>Email:</label><input type="email" name="email" value="${user.email}" required><br>
+    <label>Weight:</label><input type="number" name="weight" value="${user.weight}" required><br>
+    <label>Height:</label><input type="number" name="height" value="${user.height}" required><br>
+    <button type="submit">Update Profile</button>
+</form>
