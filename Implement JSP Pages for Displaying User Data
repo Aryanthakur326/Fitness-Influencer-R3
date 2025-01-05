@@ -1,0 +1,4 @@
+<h1>Welcome, ${user.name}!</h1>
+<p>Your fitness goals: ${user.goals}</p>
+<p>Total calories burned this week: ${user.caloriesThisWeek}</p>
+<a href="workout">View Workouts</a>
