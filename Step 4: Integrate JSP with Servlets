@@ -1,0 +1,22 @@
+RequestDispatcher dispatcher = request.getRequestDispatcher("workouts.jsp");
+dispatcher.forward(request, response);
+
+workouts.jsp Example:
+
+<h2>Your Workouts</h2>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Exercise</th>
+        <th>Duration (min)</th>
+        <th>Calories Burned</th>
+    </tr>
+    <c:forEach var="workout" items="${workouts}">
+        <tr>
+            <td>${workout.date}</td>
+            <td>${workout.exercise}</td>
+            <td>${workout.duration}</td>
+            <td>${workout.calories}</td>
+        </tr>
+    </c:forEach>
+</table>
