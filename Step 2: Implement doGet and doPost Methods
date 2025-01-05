@@ -1,0 +1,27 @@
+@WebServlet("/workout")
+public class WorkoutServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Fetch workout data from the database
+        List<Workout> workouts = WorkoutService.getAllWorkouts();
+
+        // Set data as request attribute
+        request.setAttribute("workouts", workouts);
+
+        // Forward to JSP for display
+        RequestDispatcher dispatcher = request.getRequestDispatcher("workouts.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Handle new workout entry submission
+        String exercise = request.getParameter("exercise");
+        int duration = Integer.parseInt(request.getParameter("duration"));
+        int calories = Integer.parseInt(request.getParameter("calories"));
+
+        Workout newWorkout = new Workout(exercise, duration, calories);
+        WorkoutService.saveWorkout(newWorkout);
+
+        // Redirect to the same page to fetch updated data
+        response.sendRedirect("workout");
+    }
+}
