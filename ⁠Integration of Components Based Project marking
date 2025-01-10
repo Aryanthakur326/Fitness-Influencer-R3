@@ -1,0 +1,36 @@
+Button workoutButton = new Button("Log Workout");
+GridPane.setConstraints(workoutButton, 1, 4);
+workoutButton.setOnAction(e -> {
+    Stage workoutStage = new Stage();
+    workoutStage.setTitle("Workout Logger");
+    GridPane workoutGrid = new GridPane();
+    workoutGrid.setPadding(new Insets(10, 10, 10, 10));
+    workoutGrid.setVgap(8);
+    workoutGrid.setHgap(10);
+    Label exerciseLabel = new Label("Exercise:");
+    TextField exerciseInput = new TextField();
+    Label durationLabel = new Label("Duration (min):");
+    TextField durationInput = new TextField();
+    Label caloriesLabel = new Label("Calories Burned:");
+    TextField caloriesInput = new TextField();
+    Button logWorkoutButton = new Button("Log Workout");
+    logWorkoutButton.setOnAction(event -> {
+        if (exerciseInput.getText().isEmpty() || durationInput.getText().isEmpty() || caloriesInput.getText().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Error", "All fields are required!");
+        } else {
+            System.out.println("Workout Logged: " + exerciseInput.getText());
+            workoutStage.close();
+        }
+    });
+    workoutGrid.add(exerciseLabel, 0, 0);
+    workoutGrid.add(exerciseInput, 1, 0);
+    workoutGrid.add(durationLabel, 0, 1);
+    workoutGrid.add(durationInput, 1, 1);
+    workoutGrid.add(caloriesLabel, 0, 2);
+    workoutGrid.add(caloriesInput, 1, 2);
+    workoutGrid.add(logWorkoutButton, 1, 3);
+    Scene workoutScene = new Scene(workoutGrid, 400, 300);
+    workoutStage.setScene(workoutScene);
+    workoutStage.show();
+});
+grid.getChildren().add(workoutButton);
