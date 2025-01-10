@@ -1,0 +1,90 @@
+//User Class: Encapsulate user data and behavior.
+class User {
+    private final String username;
+    private final String email;
+    private final List<String> workouts;
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+        this.workouts = new ArrayList<>();
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void logWorkout(String workoutType, int duration) {
+        workouts.add(workoutType + " - " + duration + " minutes");
+    }
+    public void viewWorkouts() {
+        if (workouts.isEmpty()) {
+            System.out.println("No workouts logged yet.");
+            return;
+        }
+        System.out.println("Workouts:");
+        for (String workout : workouts) {
+            System.out.println("- " + workout);
+        }
+    }
+}
+class User {
+    private final String username;
+    private final String email;
+    private final List<String> workouts;
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+        this.workouts = new ArrayList<>();
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void logWorkout(String workoutType, int duration) {
+        workouts.add(workoutType + " - " + duration + " minutes");
+    }
+    public void viewWorkouts() {
+        if (workouts.isEmpty()) {
+            System.out.println("No workouts logged yet.");
+            return;
+        }
+        System.out.println("Workouts:");
+        for (String workout : workouts) {
+            System.out.println("- " + workout);
+        }
+    }
+}
+class User {
+    private final String username;
+    private final String email;
+    private final List<String> workouts;
+    public User(String username, String email) {
+        this.username = username;
+        this.email = email;
+        this.workouts = new ArrayList<>();
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void logWorkout(String workoutType, int duration) {
+        workouts.add(workoutType + " - " + duration + " minutes");
+    }
+    public void viewWorkouts() {
+        if (workouts.isEmpty()) {
+            System.out.println("No workouts logged yet.");
+            return;
+        }
+        System.out.println("Workouts:");
+        for (String workout : workouts) {
+            System.out.println("- " + workout);
+        }
+    }
+}
+//Helper Methods: Separate repeated tasks like input validation
+private static int getValidIntegerInput(Scanner scanner, String prompt) {
+    while (true) {
+        try {
+            System.out.print(prompt);
+            return Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number.");
+        }
+    }
+}
