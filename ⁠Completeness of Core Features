@@ -1,0 +1,11 @@
+public void viewWorkoutSummary() {
+    int totalDuration = workouts.stream()
+        .mapToInt(workout -> Integer.parseInt(workout.split(" - ")[1].replace(" minutes", "")))
+        .sum();
+    System.out.println("Total Workout Time: " + totalDuration + " minutes");
+}
+Integrate Summary in Main Menu:
+java
+Copy code
+System.out.println("6. View Workout Summary");
+case 6 -> currentUser.viewWorkoutSummary();
