@@ -1,0 +1,15 @@
+public class UserDTO {
+    @NotBlank(message = "Name is mandatory")
+    private String name;
+    @Email(message = "Email should be valid")
+    private String email;
+    @NotBlank(message = "Password is mandatory")
+    @Size(min = 6, message = "Password should be at least 6 characters long")
+    private String password;
+    @Min(value = 1, message = "Weight must be greater than 0")
+    private double weight;
+    @Min(value = 1, message = "Height must be greater than 0")
+    private double height;
+    private String goals;
+    // Getters and setters
+} 
