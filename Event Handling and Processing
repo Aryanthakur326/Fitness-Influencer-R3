@@ -1,0 +1,16 @@
+registerButton.setOnAction(e -> handleRegistration(usernameInput, emailInput, passwordInput));
+workoutButton.setOnAction(e -> handleWorkoutLogging());
+private void handleRegistration(TextField usernameInput, TextField emailInput, PasswordField passwordInput) {
+    String username = usernameInput.getText();
+    String email = emailInput.getText();
+    String password = passwordInput.getText();
+    if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+        showAlert(Alert.AlertType.ERROR, "Validation Error", "All fields are required!");
+    } else {
+        System.out.println("User Registered Successfully: " + username);
+    }
+}
+private void handleWorkoutLogging() {
+    System.out.println("Redirecting to workout logging page...");
+    // Code for opening workout logging UI
+}
