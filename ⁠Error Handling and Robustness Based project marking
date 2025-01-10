@@ -1,0 +1,20 @@
+registerButton.setOnAction(e -> {
+    String username = usernameInput.getText();
+    String email = emailInput.getText();
+    String password = passwordInput.getText();
+    if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+        showAlert(Alert.AlertType.ERROR, "Validation Error", "All fields are required!");
+    } else if (!email.contains("@")) {
+        showAlert(Alert.AlertType.ERROR, "Validation Error", "Please enter a valid email address!");
+    } else {
+        System.out.println("User Registered: " + username);
+        // Backend integration logic
+    }
+});
+// Utility method to show alerts
+private void showAlert(Alert.AlertType alertType, String title, String message) {
+    Alert alert = new Alert(alertType);
+    alert.setTitle(title);
+    alert.setContentText(message);
+    alert.showAndWait();
+}
